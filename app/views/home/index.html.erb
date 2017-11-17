@@ -1,0 +1,100 @@
+<% @title = 'Steam Price API' %>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Steam Price API</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto w-100 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/stalytics/price">GitHub</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="card text-white bg-success mb-3 mt-3">
+    <!--<div class="card-header">Header</div>-->
+    <div class="card-body">
+      <h4 class="card-title">Привет!</h4>
+      <p class="card-text">
+        Ты попал на страницу Steam Price API от команды Stalytics!
+        Здесь можно ознакомиться с документацией по доступным запросам к API.
+        Через представленые методы ты можешь получить цены проданных предметов из CS:GO,
+        а также их количество на опеределенный этап времени. Приступим?
+      </p>
+    </div>
+  </div>
+
+  <div class="card bg-light mb-3">
+    <div class="card-header"><span class="text-muted">ISteamItems_730/</span>CurrentPrice <span class="badge badge-warning">v1</span></div>
+    <div class="card-body">
+      <!--<h4 class="card-title">Возвращает цену запрошенного предмета</h4>-->
+      <p class="card-text">Возвращает цену запрошенного предмета</p>
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Параметр</th>
+          <th scope="col">Тип</th>
+          <th scope="col">Обязательный</th>
+          <th scope="col">Описание</th>
+          <th scope="col">По умолчанию</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>market_hash_name</td>
+          <td>String</td>
+          <td><i class="fa fa-check" aria-hidden="true"></i></td>
+          <td>Название предмета (hash)</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>currency</td>
+          <td>String</td>
+          <td></td>
+          <td>Курс</td>
+          <td>RUB</td>
+        </tr>
+        <tr>
+          <td>date</td>
+          <td>timestamp</td>
+          <td></td>
+          <td>Дата</td>
+          <td>Текущая</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div id="accordion" role="tablist">
+        <div class="card">
+          <div class="card-header" role="tab" id="headingThree">
+            <h5 class="mb-0">
+              <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Ответ
+              </a>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+              <pre>
+                <code></code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card bg-light mb-3">
+    <div class="card-header"><span class="text-muted">ISteamItems_730/</span>CurrentPrice <span class="badge badge-warning">v1</span></div>
+    <div class="card-body">
+      <h4 class="card-title">Light card title</h4>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+
+</div>
