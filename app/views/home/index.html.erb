@@ -1,21 +1,8 @@
 <% @title = 'Steam Price API' %>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Steam Price API</a>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto w-100 justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/stalytics/price">GitHub</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
 <div class="container">
 
   <div class="card text-white bg-success mb-3 mt-3">
-    <!--<div class="card-header">Header</div>-->
     <div class="card-body">
       <h4 class="card-title">Привет!</h4>
       <p class="card-text">
@@ -28,10 +15,83 @@
   </div>
 
   <div class="card bg-light mb-3">
-    <div class="card-header"><span class="text-muted">ISteamItems_730/</span>CurrentPrice <span class="badge badge-warning">v1</span></div>
+    <div class="card-header"><span class="text-muted">ISteamItems_730/</span>CurrentPrice <span class="badge badge-warning">v1</span> <a href="/ISteamItems_730/CurrentPrice/v1/Huntsman%20Case%20Key" target="_blank"><span class="badge badge-primary">execute</span></a></div>
     <div class="card-body">
-      <!--<h4 class="card-title">Возвращает цену запрошенного предмета</h4>-->
       <p class="card-text">Возвращает цену запрошенного предмета</p>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Параметр</th>
+          <th scope="col">Тип</th>
+          <th scope="col">Обязательный</th>
+          <th scope="col">Описание</th>
+          <th scope="col">По умолчанию</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>market_hash_name</td>
+          <td>String</td>
+          <td><i class="fa fa-check" aria-hidden="true"></i></td>
+          <td>Имя предмета</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>currency</td>
+          <td>String</td>
+          <td></td>
+          <td>Курс</td>
+          <td>RUB</td>
+        </tr>
+        <tr>
+          <td>date</td>
+          <td>timestamp</td>
+          <td></td>
+          <td>Дата</td>
+          <td><%= Time.now.strftime("%Y-%m-%d") %></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">arrow_upward</i>Запрос</div>
+          <div class="collapsible-body">
+            <pre class="language-url">
+              <code>
+                <%= root_url + 'ISteamItems_730/CurrentPrice/v1/Huntsman%20Case%20Key' %>
+              </code>
+            </pre>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">arrow_downward</i>Ответ</div>
+          <div class="collapsible-body">
+            <pre class="language-javascript">
+              <code>
+                {
+                    "success": true,
+                    "data":
+                    {
+                        "currency": "RUB",
+                        "amount": 159.3,
+                        "volume": 140,
+                        "date": "2017-11-19T10:32:19.000Z"
+                    }
+                }
+              </code>
+            </pre>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="card bg-light mb-3">
+    <div class="card-header"><span class="text-muted">ISteamItems_730/</span>AveragePrice <span class="badge badge-warning">v1</span> <a href="/ISteamItems_730/AveragePrice/v1/Huntsman%20Case%20Key" target="_blank"><span class="badge badge-primary">execute</span></a></div>
+    <div class="card-body">
+      <p class="card-text">Возвращает среднюю цену запрошенного предмета</p>
 
       <table class="table">
         <thead>
@@ -48,7 +108,7 @@
           <td>market_hash_name</td>
           <td>String</td>
           <td><i class="fa fa-check" aria-hidden="true"></i></td>
-          <td>Название предмета (hash)</td>
+          <td>Имя предмета</td>
           <td></td>
         </tr>
         <tr>
@@ -59,42 +119,136 @@
           <td>RUB</td>
         </tr>
         <tr>
-          <td>date</td>
-          <td>timestamp</td>
+          <td>period</td>
+          <td>Integer</td>
           <td></td>
-          <td>Дата</td>
-          <td>Текущая</td>
+          <td>Последние N дней</td>
+          <td>7</td>
         </tr>
         </tbody>
       </table>
 
-      <div id="accordion" role="tablist">
-        <div class="card">
-          <div class="card-header" role="tab" id="headingThree">
-            <h5 class="mb-0">
-              <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Ответ
-              </a>
-            </h5>
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">arrow_upward</i>Запрос</div>
+          <div class="collapsible-body">
+            <pre class="language-url">
+              <code>
+                <%= root_url + 'ISteamItems_730/AveragePrice/v1/Huntsman%20Case%20Key' %>
+              </code>
+            </pre>
           </div>
-          <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
-              <pre>
-                <code></code>
-              </pre>
-            </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">arrow_downward</i>Ответ</div>
+          <div class="collapsible-body">
+            <pre class="language-javascript">
+              <code>
+                {
+                    "success":true,
+                    "data":
+                    {
+                        "market_hash_name": "Huntsman Case Key",
+                        "currency": "RUB",
+                        "amount": 159.3,
+                        "date_f": "2017-11-13 00:00:00",
+                        "date_t": "2017-11-20 23:59:59"
+                    }
+                }
+              </code>
+            </pre>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
+
     </div>
   </div>
 
   <div class="card bg-light mb-3">
-    <div class="card-header"><span class="text-muted">ISteamItems_730/</span>CurrentPrice <span class="badge badge-warning">v1</span></div>
+    <div class="card-header"><span class="text-muted">ISteamItems_730/</span>GetItemsList <span class="badge badge-warning">v1</span> <a href="/ISteamItems_730/GetItemsList/v1" target="_blank"><span class="badge badge-primary">execute</span></a></div>
     <div class="card-body">
-      <h4 class="card-title">Light card title</h4>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <p class="card-text">Возвращает список предметов в БД</p>
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Параметр</th>
+          <th scope="col">Тип</th>
+          <th scope="col">Обязательный</th>
+          <th scope="col">Описание</th>
+          <th scope="col">По умолчанию</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>page</td>
+          <td>Integer</td>
+          <td></td>
+          <td>Страница</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>per_page</td>
+          <td>Integer</td>
+          <td></td>
+          <td>Кол-во предметов на странице</td>
+          <td>100</td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">arrow_upward</i>Запрос</div>
+          <div class="collapsible-body">
+            <pre class="language-url">
+              <code>
+                <%= root_url + 'ISteamItems_730/GetItemsList/v1' %>
+              </code>
+            </pre>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">arrow_downward</i>Ответ</div>
+          <div class="collapsible-body">
+            <pre class="language-javascript">
+              <code>
+                {
+                    "success": true,
+                    "data": {
+                        "total": 8188,
+                        "per_page": 10,
+                        "current_page": 50,
+                        "last_page": 819,
+                        "items": [
+                            {
+                                "market_hash_name": "SSG 08 | Blood in the Water (Minimal Wear)",
+                                "amount": 855.98,
+                                "currency": "RUB"
+                            },
+                            {
+                                "market_hash_name": "Desert Eagle | Conspiracy (Minimal Wear)",
+                                "amount": 128.69,
+                                "currency": "RUB"
+                            },
+                            {
+                                "market_hash_name": "★ M9 Bayonet | Fade (Factory New)",
+                                "amount": 18136.49,
+                                "currency": "RUB"
+                            },
+                            ...
+                        ]
+                    }
+                }
+              </code>
+            </pre>
+          </div>
+        </li>
+      </ul>
+
     </div>
   </div>
 
 </div>
+

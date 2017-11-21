@@ -1,0 +1,36 @@
+span.badge {
+    float: none !important;
+    color: #fff !important;
+    margin: 0 !important;
+    min-width: 0 !important;
+    /*padding: 0 !important;*/
+    font-size: inherit !important;
+    line-height: inherit !important;
+    height: 100% !important;
+}
+
+pre {
+    margin: 0 !important;
+}
+
+.collapsible-body {
+    padding: 0 !important;
+}
+
+nav ul a:hover {
+    background-color: inherit !important;
+}
+
+footer.footer {
+    padding: 0 10px;
+}
+
+footer.footer span {
+    padding: 10px;
+    font-size: 11px;
+}
+
+h4.card-title {
+    margin-bottom: .75rem !important;
+    margin-top: 0 !important;
+}
