@@ -22,7 +22,7 @@ module Items730
             :data    => {
                 :market_hash_name => market_hash_name,
                 :currency         => currency.code,
-                :amount           => avg_price.to_f,
+                :amount           => avg_price.to_f.round(2),
                 :date_f           => date_f,
                 :date_t           => date_t
             }

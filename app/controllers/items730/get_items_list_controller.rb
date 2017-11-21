@@ -24,7 +24,7 @@ module Items730
                 :items          => items.map do |i|
                   {
                       :market_hash_name => i.market_hash_name,
-                      :amount           => i.app730_price.where(:currency_id => currency.id).average(:amount).to_f || nil,
+                      :amount           => i.app730_price.where(:currency_id => currency.id).average(:amount).to_f.round(2) || nil,
                       :currency         => currency.code
                   }
                 end

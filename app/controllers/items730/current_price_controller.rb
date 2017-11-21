@@ -23,7 +23,7 @@ module Items730
             :success => true,
             :data    => {
                 :currency => currency_code,
-                :amount   => price.amount.to_f,
+                :amount   => price.amount.to_f.round(2),
                 :volume   => price.volume,
                 :date     => price.created_at
             }
